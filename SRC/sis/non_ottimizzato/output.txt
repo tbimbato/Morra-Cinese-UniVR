@@ -1,0 +1,608 @@
+.model 2b_to_3b
+.inputs P1 P2
+.outputs O1 O2 O3
+
+.subckt and P1=P1 P2=P2 O=O3
+.subckt Gate_3b P2=P1 P1=P2 P3=O3 O1=O1 O2=O2 
+
+
+
+
+.search and.blif
+.search Gate_3b.blif
+.end
+
+.model CMIN_CMAX
+.inputs SET16 SET8 SET4 SET2 SET1  MAN16 MAN8 MAN4 MAN2 MAN1
+.outputs CMIN CMAX
+
+
+
+.subckt xnor P1=SET16 P2=MAN16 O=W16
+.subckt xnor P1=SET8 P2=MAN8 O=W8
+.subckt xnor P1=SET4 P2=MAN4 O=W4
+.subckt xnor P1=SET2 P2=MAN2 O=W2
+.subckt xnor P1=SET1 P2=MAN1 O=W1
+.subckt and P1=W1 P2=W2 O=W2_1
+.subckt and P1=W4 P2=W8 O=W8_4
+.subckt and P1=W16 P2=W8_4 O=W16_8_4
+.subckt and P1=W16_8_4 P2=W2_1 O=CMAX
+.subckt maggiore5bit A4=MAN16 A3=MAN8 A2=MAN4 A1=MAN2 A0=MAN1 O=CMIN
+
+.search xnor.blif
+.search and.blif
+.search maggiore5b.blif
+
+.end
+
+.model Check_Mossa
+.inputs A B Ct1 Ct2
+.outputs O
+
+.subckt and P1=A P2=Ct1 O=W1
+.subckt and P1=B P2=Ct2 O=W2
+.subckt xor P1=W1 P2=W2 O=O
+
+.search and.blif
+.search xor.blif 
+.end
+.model Check_mossa_2b
+.inputs A1 A2 B1 B2 Ct1 Ct2
+.outputs O1 O2
+
+.subckt zero 0=0
+.subckt and P1=Ct1 P2=Ct2 O=Wctrl
+.subckt mux_2b A1=Ct1 A2=Ct2 B1=0 B2=0 Ctrl=Wctrl O1=Wct1 O2=Wct2
+.subckt Check_Mossa A=A1 B=B1 Ct1=Wct1 Ct2=Wct2 O=O1
+.subckt Check_Mossa A=A2 B=B2 Ct1=Wct1 Ct2=Wct2 O=O2
+
+.search zero.blif
+.search and.blif
+.search Mux_2b.blif
+.search Check_Mossa.blif
+
+.end
+
+
+.model Controllo_Partita
+.inputs A1 A2 B1 B2
+.outputs Ctrl
+
+.subckt xnor P1=A1 P2=B1 O=W1
+.subckt xnor P1=A2 P2=B2 O=W2
+.subckt and P1=W1 P2=W2 O=W3
+
+.subckt nor P1=A1 P2=A2 O=W4
+.subckt nor P1=B1 P2=B2 O=W5
+.subckt and P1=W4 P2=W5 O=W6
+
+.subckt zero 0=0
+
+
+.subckt mux A=W3 B=0 Ctrl=W6 O=Ctrl
+
+.search xnor.blif
+.search nor.blif
+.search and.blif
+.search Mux.blif
+.search zero.blif
+
+
+
+.end
+
+.model DATAPATH
+.inputs PRIMO1 PRIMO2 SECONDO1 SECONDO2 INIZIA
+.outputs MANCHE_FSM1 MANCHE_FSM2 CMIN CMAX
+
+.subckt demux4bit A3=PRIMO1 A2=PRIMO2 A1=SECONDO1 A0=SECONDO2 Ctrl=INIZIA ON3=ON3 ON2=ON2 ON1=ON1 ON0=ON0 OFF3=OFF3 OFF2=OFF2 OFF1=OFF1 OFF0=OFF0
+.subckt Partita_lv5 MP1=OFF3 MP2=OFF2 MS1=OFF1 MS2=OFF0 INIZIA=INIZIA VinceG1=VinceG1 VinceG2=VinceG2 16=16 8=8 4=4 2=2 1=1
+.subckt Reg_4b A3=ON3 A2=ON2 A1=ON1 A0=ON0 Reset=INIZIA O3=O3 O2=O2 O1=O1 O0=O0
+.subckt add4 A3=O3 A2=O2 A1=O1 A0=O0 COUT=SET16 O3=SET8 O2=SET4 O1=SET2 O0=SET1
+.subckt CMIN_CMAX SET16=SET16 SET8=SET8 SET4=SET4 SET2=SET2 SET1=SET1 MAN16=16 MAN8=8 MAN4=4 MAN2=2 MAN1=1 CMIN=CavoMin CMAX=CavoMax
+.subckt mux_to_FSM Manche1=VinceG2 Manche0=VinceG1 Cmin=CavoMin Cmax=CavoMax INIZIA=INIZIA Manche1_out=MANCHE_FSM2 Manche0_out=MANCHE_FSM1 Cmin_out=CMIN Cmax_out=CMAX
+
+
+
+.search demux4bit.blif
+.search Partita_lv5.blif
+.search Reg_4b.blif
+.search add4.blif
+.search CMIN_CMAX.blif
+.search Mux_to_FSM.blif
+
+
+.end
+
+
+
+
+
+.model Mossa_ill
+.inputs A1 A2 B1 B2
+.outputs O1 O2 Ctrl
+
+.subckt nor P1=A1 P2=A2 O=W1
+.subckt nor P1=B1 P2=B2 O=W2
+.subckt Check_mossa_2b A1=A1 A2=A2 B1=B1 B2=B2 Ct1=W2 Ct2=W1 O1=O1 O2=O2
+.subckt xor P1=W1 P2=W2 O=Ctrl
+
+.search nor.blif
+.search xor.blif
+.search Check_mossa_2b.blif
+.end
+
+.model mux
+.inputs A B Ctrl
+.outputs O
+
+.subckt not P1=Ctrl O=NotCtrl
+.subckt and P1=A P2=NotCtrl O=W1
+.subckt and P1=B P2=Ctrl O=W2
+.subckt or P1=W1 P2=W2 O=O
+
+.search not.blif
+.search and.blif
+.search or.blif
+.end
+.model mux_2b
+.inputs A1 A2 B1 B2 Ctrl
+.outputs O1 O2
+
+.subckt mux A=A1 B=B1 Ctrl=Ctrl O=O1
+.subckt mux A=A2 B=B2 Ctrl=Ctrl O=O2
+
+.search Mux.blif
+
+.end
+
+.model mux_5b
+.inputs A4 A3 A2 A1 A0 Ctrl
+.outputs O4 O3 O2 O1 O0
+
+.subckt uno 1=1
+.subckt zero 0=0
+.subckt mux A=A4 B=0 Ctrl=Ctrl O=O4
+.subckt mux A=A3 B=0 Ctrl=Ctrl O=O3
+.subckt mux A=A2 B=0 Ctrl=Ctrl O=O2
+.subckt mux A=A1 B=0 Ctrl=Ctrl O=O1
+.subckt mux A=A0 B=1 Ctrl=Ctrl O=O0
+
+.search uno.blif
+.search zero.blif
+.search Mux.blif
+
+.end
+.model mux_to_FSM
+.inputs Manche1 Manche0 Cmin Cmax INIZIA
+.outputs Manche1_out Manche0_out Cmin_out Cmax_out
+
+.subckt zero 0=0
+.subckt mux_2b A1=Manche1 A2=Manche0 B1=0 B2=0 Ctrl=INIZIA O1=Manche1_out O2=Manche0_out
+.subckt mux_2b A1=Cmin A2=Cmax B1=0 B2=0 Ctrl=INIZIA O1=Cmin_out O2=Cmax_out
+
+.search zero.blif
+.search Mux_2b.blif
+
+.end
+
+.model Partita_lv1
+.inputs G1b1 G1b2 G2b1 G2b2
+.outputs Pari VG1 VG2
+
+.subckt 2b_to_3b P1=G1b1 P2=G1b2 O1=sasso1 O2=carta1 O3=forbice1
+.subckt 2b_to_3b P1=G2b1 P2=G2b2 O1=sasso2 O2=carta2 O3=forbice2
+
+#Pari
+.subckt and P1=sasso1 P2=sasso2 O=Pari1
+.subckt and P1=carta1 P2=carta2 O=Pari2
+.subckt and P1=forbice1 P2=forbice2 O=Pari3
+
+#Vince G1
+.subckt and P1=carta1 P2=sasso2 O=VincePrimo1
+.subckt and P1=sasso1 P2=forbice2 O=VincePrimo2
+.subckt and P1=forbice1 P2=carta2 O=VincePrimo3
+
+#Vince G2
+.subckt and P1=carta1 P2=forbice2 O=VinceSecondo1
+.subckt and P1=forbice1 P2=sasso2 O=VinceSecondo2
+.subckt and P1=sasso1 P2=carta2 O=VinceSecondo3
+
+#Match Pari
+.subckt or_3b P1=Pari1 P2=Pari2 P3=Pari3 O=Pari 
+#Match Vince G1
+.subckt or_3b P1=VincePrimo1 P2=VincePrimo2 P3=VincePrimo3 O=VG1
+#Match Vinci G2
+.subckt or_3b P1=VinceSecondo1 P2=VinceSecondo2 P3=VinceSecondo3 O=VG2
+
+.search 2b_to_3b.blif
+.search and.blif
+.search or_3b.blif
+.end
+
+.model Partita_lv2
+.inputs A0 A1 B0 B1 Reset
+.outputs VinceG1 VinceG2 MossaA1 MossaA2
+
+.subckt Partita_lv1 G1b1=A0 G1b2=A1 G2b1=B0 G2b2=B1 Pari=Pari VG1=VG1 VG2=VG2
+.subckt mux_2b A1=VG2 A2=VG1 B1=Pari B2=Pari Ctrl=Pari O1=VinceG1 O2=VinceG2
+.subckt Check_mossa_2b A1=A0 A2=A1 B1=B0 B2=B1 Ct1=VinceG2 Ct2=VinceG1 O1=W1 O2=W2
+.subckt Mossa_ill A1=A0 A2=A1 B1=B0 B2=B1 O1=Wire2 O2=Wire3 Ctrl=CtrlMossa
+.subckt mux_2b A1=W1 A2=W2 B1=Wire2 B2=Wire3 Ctrl=CtrlMossa O1=WireMossaA1 O2=WireMossaA2
+.subckt Reg_2b A0=WireMossaA1 A1=WireMossaA2 Reset=Reset O0=MossaA1 O1=MossaA2
+
+.search Partita_lv1.blif
+.search Mux_2b.blif
+.search Check_mossa_2b.blif
+.search Mossa_ill.blif
+.search Reg_2b.blif
+.end
+
+.model Partita_lv3
+
+.inputs MP1 MP2 MS1 MS2 Reset
+.outputs VinceG1 VinceG2 MossaA1 MossaA2 Gprece1 Gprece2
+
+.subckt nor P1=MP1 P2=MP2 O=W0 
+.subckt nor P1=MS1 P2=MS2 O=W1
+.subckt Partita_lv2 A0=MP1 A1=MP2 B0=MS1 B1=MS2 Reset=Reset VinceG1=WG1 VinceG2=WG2 MossaA1=MossaA1 MossaA2=MossaA2
+.subckt tavolino VG1=WG1 VG2=WG2 G1=W0 G2=W1 O0=VinceG1 O1=VinceG2
+.subckt Reg_2b A0=VinceG1 A1=VinceG2 Reset=Reset O0=Gprece1 O1=Gprece2
+
+.search nor.blif
+.search Partita_lv2.blif
+.search tavolino.blif
+.search Reg_2b.blif
+
+.end
+
+
+.model Partita_lv4
+.inputs MP1 MP2 MS1 MS2
+.outputs VinceG1 VinceG2
+
+
+.subckt Check_mossa_2b A1=MP1 A2=MP2 B1=MS1 B2=MS2 Ct1=Gprece2 Ct2=Gprece1 O1=Wmossa1 O2=Wmossa2
+.subckt Controllo_Partita A1=Wmossa1 A2=Wmossa2 B1=MossaA1 B2=MossaA2 Ctrl=WireRisultato
+.subckt not P1=WireRisultato O=Reset
+.subckt Partita_lv3 MP1=MP1 MP2=MP2 MS1=MS1 MS2=MS2 Reset=Reset VinceG1=VG1 VinceG2=VG2 MossaA1=MossaA1 MossaA2=MossaA2 Gprece1=Gprece1 Gprece2=Gprece2
+.subckt and P1=VG1 P2=Reset O=VinceG1
+.subckt and P1=VG2 P2=Reset O=VinceG2
+
+.search Partita_lv3.blif
+.search Check_mossa_2b.blif
+.search Controllo_Partita.blif
+.search not.blif
+.search and.blif
+
+.end
+
+
+
+
+
+
+
+.model Partita_lv5
+.inputs MP1 MP2 MS1 MS2 INIZIA
+.outputs VinceG1 VinceG2 16 8 4 2 1
+
+.subckt Partita_lv4 MP1=MP1 MP2=MP2 MS1=MS1 MS2=MS2 VinceG1=VinceG1 VinceG2=VinceG2
+.subckt countmanche VG1=VinceG1 VG2=VinceG2 Ctrl=INIZIA INIZIA=INIZIA O4=16 O3=8 O2=4 O1=2 O0=1
+
+.search Partita_lv4.blif
+.search countmanche.blif
+
+.end
+
+.model Reg
+.inputs A Reset
+.outputs O
+
+.latch A O fe Reset 0
+
+.end
+
+.model Reg_2b
+.inputs A1 A0 Reset
+.outputs O1 O0
+
+.subckt Reg A=A0 Reset=Reset O=O0
+.subckt Reg A=A1 Reset=Reset O=O1
+
+.search Reg.blif
+.end
+
+
+.model Reg_4b
+.inputs A3 A2 A1 A0 Reset
+.outputs O3 O2 O1 O0
+
+.subckt Reg_2b A0=A0 A1=A1 Reset=Reset O0=O0 O1=O1
+.subckt Reg_2b A0=A2 A1=A3 Reset=Reset O0=O2 O1=O3
+
+.search Reg_2b.blif
+.end
+.model Reg_5b
+.inputs A4 A3 A2 A1 A0 Reset
+.outputs O4 O3 O2 O1 O0
+
+.subckt Reg A=A4 Reset=Reset O=O4
+.subckt Reg A=A3 Reset=Reset O=O3
+.subckt Reg A=A2 Reset=Reset O=O2
+.subckt Reg A=A1 Reset=Reset O=O1
+.subckt Reg A=A0 Reset=Reset O=O0
+
+.search Reg.blif
+
+.end
+
+
+.model add4
+
+.inputs A3 A2 A1 A0 
+.outputs COUT O3 O2 O1 O0
+
+.subckt zero 0=0
+.subckt uno 1=1
+.subckt sum2bit A1=A1 A0=A0 B1=0 B0=0 CIN=0 O1=O1 O0=O0 COUT=W0
+.subckt sum2bit A1=A3 A0=A2 B1=0 B0=1 CIN=W0 O1=O3 O0=O2 COUT=COUT
+
+.search zero.blif
+.search uno.blif
+.search sum2bit.blif
+
+.end
+.model and
+.inputs P1 P2
+.outputs O
+
+.names P1 P2 O
+11 1
+
+.end
+.model cont5bit
+.inputs A4 A3 A2 A1 A0 IN0
+.outputs O4 O3 O2 O1 O0
+
+.subckt zero 0=0
+
+.subckt sum1bit a=A0 b=IN0 cin=0 out1=O0 cout=wcout0
+.subckt sum1bit a=A1 b=0 cin=wcout0 out1=O1 cout=wcout1
+.subckt sum1bit a=A2 b=0 cin=wcout1 out1=O2 cout=wcout2
+.subckt sum1bit a=A3 b=0 cin=wcout2 out1=O3 cout=wcout3
+.subckt sum1bit_no a=A4 b=0 cin=wcout3 out1=O4
+
+.search zero.blif
+.search sum1bit.blif
+.search sum1bit_no.blif
+
+.end
+.model countmanche
+.inputs VG1 VG2 Ctrl INIZIA
+.outputs O4 O3 O2 O1 O0
+
+.subckt or P1=VG1 P2=VG2 O=LEGIT
+.subckt or P1=LEGIT P2=INIZIA O=WENABLE
+.subckt mux_5b A4=WC4 A3=WC3 A2=WC2 A1=WC1 A0=WC0 Ctrl=Ctrl O4=W4 O3=W3 O2=W2 O1=W1 O0=W0
+.subckt Reg_5b A4=W4 A3=W3 A2=W2 A1=W1 A0=W0 Reset=WENABLE O4=O4 O3=O3 O2=O2 O1=O1 O0=O0
+.subckt cont5bit A4=O4 A3=O3 A2=O2 A1=O1 A0=O0 IN0=LEGIT O4=WC4 O3=WC3 O2=WC2 O1=WC1 O0=WC0
+
+.search or.blif
+.search Mux_5b.blif
+.search Reg_5b.blif
+.search cont5bit.blif
+
+.end
+
+.model demux1bit
+.inputs A Ctrl
+.outputs ON OFF
+
+.subckt not P1=Ctrl O=NotCtrl
+.subckt and P1=A P2=Ctrl O=ON
+.subckt and P1=A P2=NotCtrl O=OFF
+
+.search not.blif
+.search and.blif
+
+.end
+
+.model demux4bit
+.inputs A3 A2 A1 A0 Ctrl
+.outputs ON3 ON2 ON1 ON0 OFF3 OFF2 OFF1 OFF0
+
+.subckt demux1bit A=A3 Ctrl=Ctrl ON=ON3 OFF=OFF3
+.subckt demux1bit A=A2 Ctrl=Ctrl ON=ON2 OFF=OFF2
+.subckt demux1bit A=A1 Ctrl=Ctrl ON=ON1 OFF=OFF1
+.subckt demux1bit A=A0 Ctrl=Ctrl ON=ON0 OFF=OFF0
+
+.search demux1bit.blif
+
+.end
+
+
+.model maggiore
+.inputs A B
+.outputs O
+
+.subckt not P1=B O=NOTB
+.subckt and P1=A P2=NOTB O=O
+
+.search not.blif
+.search and.blif
+
+.end
+
+.model maggiore5bit
+.inputs A4 A3 A2 A1 A0 
+.outputs O
+
+.subckt zero 0=0
+.subckt uno 1=1
+.subckt maggiore A=A0 B=1 O=W0
+.subckt maggiore A=A1 B=1 O=W1
+.subckt maggiore A=A2 B=0 O=W2
+.subckt maggiore A=A3 B=0 O=W3
+.subckt maggiore A=A4 B=0 O=W4
+.subckt or P1=W0 P2=W1 O=W2_1
+.subckt or P1=W2 P2=W2_1 O=W4_2_1
+.subckt or P1=W4_2_1 P2=W3 O=W8_4_2_1
+.subckt or P1=W8_4_2_1 P2=W4 O=O
+
+.search zero.blif
+.search uno.blif
+.search maggiore.blif
+.search or.blif
+
+.end
+
+.model nor
+.inputs P1 P2
+.outputs O
+
+.subckt or P1=P1 P2=P2 O=W
+.subckt not P1=W O=O
+
+.search or.blif
+.search not.blif
+
+.end
+
+.model not
+.inputs P1
+.outputs O
+
+.names P1 O
+0 1
+
+.end
+.model notAnd
+.inputs P1 P2
+.outputs O
+
+.subckt and P1=P1 P2=P2 O=K
+.subckt not P1=K O=O
+
+.search not.blif
+.search and.blif
+.end
+.model or
+.inputs P1 P2
+.outputs O
+
+.subckt not P1=P2 O=W1
+.subckt not P1=P1 O=W2
+.subckt notAnd P1=W1 P2=W2 O=O
+
+.search not.blif
+.search notAnd.blif
+
+.end
+.model or_3b
+.inputs P1 P2 P3
+.outputs O
+
+.subckt or P1=P1 P2=P2 O=W
+.subckt or P1=P3 P2=W O=O
+
+.search or.blif
+.end
+
+.model sum1bit
+.inputs a b cin
+.outputs out1 cout
+.names a b lnk
+10 1
+01 1
+.names lnk cin out1
+10 1
+01 1
+.names a b cin cout
+11- 1
+1-1 1
+-11 1
+
+.end
+.model sum1bit_no
+.inputs a b cin
+.outputs out1 
+.names a b lnk
+10 1
+01 1
+.names lnk cin out1
+10 1
+01 1
+
+.end
+
+.model sum2bit
+.inputs A1 A0 B1 B0 CIN
+.outputs O1 O0 COUT
+.subckt sum1bit a=A0 b=B0 cin=CIN out1=O0 cout=C0
+.subckt sum1bit a=A1 b=B1 cin=C0 out1=O1 cout=COUT
+.search sum1bit.blif
+.end
+.model tavolino
+.inputs VG1 VG2 G1 G2 
+.outputs O0 O1
+
+.subckt xor P1=G1 P2=G2 O=W0
+.subckt mux_2b A1=VG1 A2=VG2 B1=G1 B2=G2 Ctrl=W0 O1=O0 O2=O1
+
+.search xor.blif
+.search Mux_2b.blif
+
+.end
+
+
+
+.model uno
+.inputs
+.outputs 1
+
+.names 1
+1
+
+.end
+
+.model xnor
+.inputs P1 P2
+.outputs O
+
+.subckt xor P1=P1 P2=P2 O=W
+.subckt not P1=W O=O
+
+.search xor.blif
+.search not.blif
+
+.end
+
+
+
+
+
+.model xor
+.inputs P1 P2
+.outputs O
+
+.subckt notAnd P1=P1 P2=P2 O=W1
+.subckt or P1=P1 P2=P2 O=W2
+.subckt and P1=W1 P2=W2 O=O
+
+.search notAnd.blif
+.search or.blif
+.search and.blif
+
+.end
+
+.model zero 
+.inputs 
+.outputs 0
+
+.names 0
+0
+
+.end
+
+

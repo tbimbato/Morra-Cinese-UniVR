@@ -1,0 +1,12 @@
+.model Partita_lv5
+.inputs MP1 MP2 MS1 MS2 INIZIA
+.outputs VinceG1 VinceG2 16 8 4 2 1
+
+.subckt Partita_lv4 MP1=MP1 MP2=MP2 MS1=MS1 MS2=MS2 VinceG1=VinceG1 VinceG2=VinceG2
+.subckt countmanche VG1=VinceG1 VG2=VinceG2 Ctrl=INIZIA INIZIA=INIZIA O4=16 O3=8 O2=4 O1=2 O0=1
+
+.search Partita_lv4.blif
+.search countmanche.blif
+
+.end
+

@@ -1,0 +1,17 @@
+.model cont5bit
+.inputs A4 A3 A2 A1 A0 IN0
+.outputs O4 O3 O2 O1 O0
+
+.subckt zero 0=0
+
+.subckt sum1bit a=A0 b=IN0 cin=0 out1=O0 cout=wcout0
+.subckt sum1bit a=A1 b=0 cin=wcout0 out1=O1 cout=wcout1
+.subckt sum1bit a=A2 b=0 cin=wcout1 out1=O2 cout=wcout2
+.subckt sum1bit a=A3 b=0 cin=wcout2 out1=O3 cout=wcout3
+.subckt sum1bit_no a=A4 b=0 cin=wcout3 out1=O4
+
+.search zero.blif
+.search sum1bit.blif
+.search sum1bit_no.blif
+
+.end

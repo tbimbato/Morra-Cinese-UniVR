@@ -1,0 +1,25 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduzione}{1}{}%
+\contentsline {section}{\numberline {1.1}Approccio progettuale}{1}{}%
+\contentsline {section}{\numberline {1.2}Analisi delle specifiche}{1}{}%
+\contentsline {subsection}{\numberline {1.2.1}Specifiche di input e output}{1}{}%
+\contentsline {subsection}{\numberline {1.2.2}Specifiche di funzionamento e regole del gioco}{1}{}%
+\contentsline {chapter}{\numberline {2}FSDM (Finish State Machine with Datapath)}{3}{}%
+\contentsline {section}{\numberline {2.1}Datapath}{3}{}%
+\contentsline {subsection}{\numberline {2.1.1}Funzioni Principali del Datapath}{4}{}%
+\contentsline {subsubsection}{Reset e Inizializzazione dei Registri}{4}{}%
+\contentsline {subsubsection}{Settaggio del Numero di Manche Massime}{4}{}%
+\contentsline {subsubsection}{Calcolo combinatorio del vincitore della \textit {manche} e applicazione delle regole interne}{4}{}%
+\contentsline {subsubsection}{Conteggio delle Manche Giocate e Invio di Segnali di Controllo all'FSM}{4}{}%
+\contentsline {section}{\numberline {2.2}Finish State Machine}{4}{}%
+\contentsline {chapter}{\numberline {3}Verilog}{8}{}%
+\contentsline {section}{\numberline {3.1}Design.sv}{8}{}%
+\contentsline {section}{\numberline {3.2}testbench.sv}{10}{}%
+\contentsline {chapter}{\numberline {4}SIS}{12}{}%
+\contentsline {section}{\numberline {4.1}Architettura del sistema}{12}{}%
+\contentsline {section}{\numberline {4.2}Statistiche del circuito e mapping tecnologico}{16}{}%
+\contentsline {chapter}{\numberline {5}Scelte progettuali ed eventuali chiarimenti}{17}{}%
+\contentsline {section}{\numberline {5.1}Definizione del comportamento in caso di mossa \textit {"sconosciuta"} al datapath}{17}{}%
+\contentsline {section}{\numberline {5.2}Comportamento del sistema in relazione al segnale \texttt {INIZIA}}{17}{}%
+\contentsline {section}{\numberline {5.3}Approfondimento sulla suddivisione delle funzioni tra Datapath e FSM}{17}{}%

@@ -1,0 +1,15 @@
+.model Reg_5b
+.inputs A4 A3 A2 A1 A0 Reset
+.outputs O4 O3 O2 O1 O0
+
+.subckt Reg A=A4 Reset=Reset O=O4
+.subckt Reg A=A3 Reset=Reset O=O3
+.subckt Reg A=A2 Reset=Reset O=O2
+.subckt Reg A=A1 Reset=Reset O=O1
+.subckt Reg A=A0 Reset=Reset O=O0
+
+.search Reg.blif
+
+.end
+
+

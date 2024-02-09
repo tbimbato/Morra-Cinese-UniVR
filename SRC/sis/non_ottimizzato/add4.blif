@@ -1,0 +1,15 @@
+.model add4
+
+.inputs A3 A2 A1 A0 
+.outputs COUT O3 O2 O1 O0
+
+.subckt zero 0=0
+.subckt uno 1=1
+.subckt sum2bit A1=A1 A0=A0 B1=0 B0=0 CIN=0 O1=O1 O0=O0 COUT=W0
+.subckt sum2bit A1=A3 A0=A2 B1=0 B0=1 CIN=W0 O1=O3 O0=O2 COUT=COUT
+
+.search zero.blif
+.search uno.blif
+.search sum2bit.blif
+
+.end

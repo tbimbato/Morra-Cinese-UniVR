@@ -1,0 +1,13 @@
+.model demux1bit
+.inputs A Ctrl
+.outputs ON OFF
+
+.subckt not P1=Ctrl O=NotCtrl
+.subckt and P1=A P2=Ctrl O=ON
+.subckt and P1=A P2=NotCtrl O=OFF
+
+.search not.blif
+.search and.blif
+
+.end
+

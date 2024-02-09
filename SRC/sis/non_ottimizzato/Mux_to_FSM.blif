@@ -1,0 +1,13 @@
+.model mux_to_FSM
+.inputs Manche1 Manche0 Cmin Cmax INIZIA
+.outputs Manche1_out Manche0_out Cmin_out Cmax_out
+
+.subckt zero 0=0
+.subckt mux_2b A1=Manche1 A2=Manche0 B1=0 B2=0 Ctrl=INIZIA O1=Manche1_out O2=Manche0_out
+.subckt mux_2b A1=Cmin A2=Cmax B1=0 B2=0 Ctrl=INIZIA O1=Cmin_out O2=Cmax_out
+
+.search zero.blif
+.search Mux_2b.blif
+
+.end
+

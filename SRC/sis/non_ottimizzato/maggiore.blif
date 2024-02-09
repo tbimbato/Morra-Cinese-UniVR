@@ -1,0 +1,12 @@
+.model maggiore
+.inputs A B
+.outputs O
+
+.subckt not P1=B O=NOTB
+.subckt and P1=A P2=NOTB O=O
+
+.search not.blif
+.search and.blif
+
+.end
+

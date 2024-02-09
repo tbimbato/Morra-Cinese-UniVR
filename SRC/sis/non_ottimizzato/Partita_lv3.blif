@@ -1,0 +1,19 @@
+.model Partita_lv3
+
+.inputs MP1 MP2 MS1 MS2 Reset
+.outputs VinceG1 VinceG2 MossaA1 MossaA2 Gprece1 Gprece2
+
+.subckt nor P1=MP1 P2=MP2 O=W0 
+.subckt nor P1=MS1 P2=MS2 O=W1
+.subckt Partita_lv2 A0=MP1 A1=MP2 B0=MS1 B1=MS2 Reset=Reset VinceG1=WG1 VinceG2=WG2 MossaA1=MossaA1 MossaA2=MossaA2
+.subckt tavolino VG1=WG1 VG2=WG2 G1=W0 G2=W1 O0=VinceG1 O1=VinceG2
+.subckt Reg_2b A0=VinceG1 A1=VinceG2 Reset=Reset O0=Gprece1 O1=Gprece2
+
+.search nor.blif
+.search Partita_lv2.blif
+.search tavolino.blif
+.search Reg_2b.blif
+
+.end
+
+

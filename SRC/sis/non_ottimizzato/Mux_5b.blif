@@ -1,0 +1,17 @@
+.model mux_5b
+.inputs A4 A3 A2 A1 A0 Ctrl
+.outputs O4 O3 O2 O1 O0
+
+.subckt uno 1=1
+.subckt zero 0=0
+.subckt mux A=A4 B=0 Ctrl=Ctrl O=O4
+.subckt mux A=A3 B=0 Ctrl=Ctrl O=O3
+.subckt mux A=A2 B=0 Ctrl=Ctrl O=O2
+.subckt mux A=A1 B=0 Ctrl=Ctrl O=O1
+.subckt mux A=A0 B=1 Ctrl=Ctrl O=O0
+
+.search uno.blif
+.search zero.blif
+.search Mux.blif
+
+.end

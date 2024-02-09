@@ -1,0 +1,14 @@
+.model Mossa_ill
+.inputs A1 A2 B1 B2
+.outputs O1 O2 Ctrl
+
+.subckt nor P1=A1 P2=A2 O=W1
+.subckt nor P1=B1 P2=B2 O=W2
+.subckt Check_mossa_2b A1=A1 A2=A2 B1=B1 B2=B2 Ct1=W2 Ct2=W1 O1=O1 O2=O2
+.subckt xor P1=W1 P2=W2 O=Ctrl
+
+.search nor.blif
+.search xor.blif
+.search Check_mossa_2b.blif
+.end
+

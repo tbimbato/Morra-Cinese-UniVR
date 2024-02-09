@@ -1,0 +1,14 @@
+.model 2b_to_3b
+.inputs P1 P2
+.outputs O1 O2 O3
+
+.subckt and P1=P1 P2=P2 O=O3
+.subckt Gate_3b P2=P1 P1=P2 P3=O3 O1=O1 O2=O2 
+
+
+
+
+.search and.blif
+.search Gate_3b.blif
+.end
+

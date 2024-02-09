@@ -1,0 +1,14 @@
+.model demux4bit
+.inputs A3 A2 A1 A0 Ctrl
+.outputs ON3 ON2 ON1 ON0 OFF3 OFF2 OFF1 OFF0
+
+.subckt demux1bit A=A3 Ctrl=Ctrl ON=ON3 OFF=OFF3
+.subckt demux1bit A=A2 Ctrl=Ctrl ON=ON2 OFF=OFF2
+.subckt demux1bit A=A1 Ctrl=Ctrl ON=ON1 OFF=OFF1
+.subckt demux1bit A=A0 Ctrl=Ctrl ON=ON0 OFF=OFF0
+
+.search demux1bit.blif
+
+.end
+
+

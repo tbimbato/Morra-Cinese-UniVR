@@ -1,0 +1,11 @@
+.model Reg_2b
+.inputs A1 A0 Reset
+.outputs O1 O0
+
+.subckt Reg A=A0 Reset=Reset O=O0
+.subckt Reg A=A1 Reset=Reset O=O1
+
+.search Reg.blif
+.end
+
+

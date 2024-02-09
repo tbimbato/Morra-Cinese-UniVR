@@ -1,0 +1,7 @@
+.model sum2bit
+.inputs A1 A0 B1 B0 CIN
+.outputs O1 O0 COUT
+.subckt sum1bit a=A0 b=B0 cin=CIN out1=O0 cout=C0
+.subckt sum1bit a=A1 b=B1 cin=C0 out1=O1 cout=COUT
+.search sum1bit.blif
+.end

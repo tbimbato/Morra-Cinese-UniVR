@@ -1,0 +1,10 @@
+.model or_3b
+.inputs P1 P2 P3
+.outputs O
+
+.subckt or P1=P1 P2=P2 O=W
+.subckt or P1=P3 P2=W O=O
+
+.search or.blif
+.end
+

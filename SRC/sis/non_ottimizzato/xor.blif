@@ -1,0 +1,14 @@
+.model xor
+.inputs P1 P2
+.outputs O
+
+.subckt notAnd P1=P1 P2=P2 O=W1
+.subckt or P1=P1 P2=P2 O=W2
+.subckt and P1=W1 P2=W2 O=O
+
+.search notAnd.blif
+.search or.blif
+.search and.blif
+
+.end
+

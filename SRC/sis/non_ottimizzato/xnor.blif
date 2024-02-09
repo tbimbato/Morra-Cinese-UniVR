@@ -1,0 +1,16 @@
+.model xnor
+.inputs P1 P2
+.outputs O
+
+.subckt xor P1=P1 P2=P2 O=W
+.subckt not P1=W O=O
+
+.search xor.blif
+.search not.blif
+
+.end
+
+
+
+
+

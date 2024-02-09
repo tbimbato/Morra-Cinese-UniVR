@@ -1,0 +1,8 @@
+.model Reg
+.inputs A Reset
+.outputs O
+
+.latch A O fe Reset 0
+
+.end
+

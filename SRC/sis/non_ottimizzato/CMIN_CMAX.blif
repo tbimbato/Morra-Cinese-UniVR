@@ -1,0 +1,23 @@
+.model CMIN_CMAX
+.inputs SET16 SET8 SET4 SET2 SET1  MAN16 MAN8 MAN4 MAN2 MAN1
+.outputs CMIN CMAX
+
+
+
+.subckt xnor P1=SET16 P2=MAN16 O=W16
+.subckt xnor P1=SET8 P2=MAN8 O=W8
+.subckt xnor P1=SET4 P2=MAN4 O=W4
+.subckt xnor P1=SET2 P2=MAN2 O=W2
+.subckt xnor P1=SET1 P2=MAN1 O=W1
+.subckt and P1=W1 P2=W2 O=W2_1
+.subckt and P1=W4 P2=W8 O=W8_4
+.subckt and P1=W16 P2=W8_4 O=W16_8_4
+.subckt and P1=W16_8_4 P2=W2_1 O=CMAX
+.subckt maggiore5bit A4=MAN16 A3=MAN8 A2=MAN4 A1=MAN2 A0=MAN1 O=CMIN
+
+.search xnor.blif
+.search and.blif
+.search maggiore5b.blif
+
+.end
+

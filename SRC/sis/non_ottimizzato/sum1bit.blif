@@ -1,0 +1,15 @@
+.model sum1bit
+.inputs a b cin
+.outputs out1 cout
+.names a b lnk
+10 1
+01 1
+.names lnk cin out1
+10 1
+01 1
+.names a b cin cout
+11- 1
+1-1 1
+-11 1
+
+.end

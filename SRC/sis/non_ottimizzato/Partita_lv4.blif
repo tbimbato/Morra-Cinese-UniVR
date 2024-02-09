@@ -1,0 +1,26 @@
+.model Partita_lv4
+.inputs MP1 MP2 MS1 MS2
+.outputs VinceG1 VinceG2
+
+
+.subckt Check_mossa_2b A1=MP1 A2=MP2 B1=MS1 B2=MS2 Ct1=Gprece2 Ct2=Gprece1 O1=Wmossa1 O2=Wmossa2
+.subckt Controllo_Partita A1=Wmossa1 A2=Wmossa2 B1=MossaA1 B2=MossaA2 Ctrl=WireRisultato
+.subckt not P1=WireRisultato O=Reset
+.subckt Partita_lv3 MP1=MP1 MP2=MP2 MS1=MS1 MS2=MS2 Reset=Reset VinceG1=VG1 VinceG2=VG2 MossaA1=MossaA1 MossaA2=MossaA2 Gprece1=Gprece1 Gprece2=Gprece2
+.subckt and P1=VG1 P2=Reset O=VinceG1
+.subckt and P1=VG2 P2=Reset O=VinceG2
+
+.search Partita_lv3.blif
+.search Check_mossa_2b.blif
+.search Controllo_Partita.blif
+.search not.blif
+.search and.blif
+
+.end
+
+
+
+
+
+
+

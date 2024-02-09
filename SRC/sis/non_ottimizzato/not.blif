@@ -1,0 +1,8 @@
+.model not
+.inputs P1
+.outputs O
+
+.names P1 O
+0 1
+
+.end

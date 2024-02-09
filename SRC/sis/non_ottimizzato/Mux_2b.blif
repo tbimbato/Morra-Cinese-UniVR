@@ -1,0 +1,11 @@
+.model mux_2b
+.inputs A1 A2 B1 B2 Ctrl
+.outputs O1 O2
+
+.subckt mux A=A1 B=B1 Ctrl=Ctrl O=O1
+.subckt mux A=A2 B=B2 Ctrl=Ctrl O=O2
+
+.search Mux.blif
+
+.end
+

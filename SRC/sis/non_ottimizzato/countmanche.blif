@@ -1,0 +1,17 @@
+.model countmanche
+.inputs VG1 VG2 Ctrl INIZIA
+.outputs O4 O3 O2 O1 O0
+
+.subckt or P1=VG1 P2=VG2 O=LEGIT
+.subckt or P1=LEGIT P2=INIZIA O=WENABLE
+.subckt mux_5b A4=WC4 A3=WC3 A2=WC2 A1=WC1 A0=WC0 Ctrl=Ctrl O4=W4 O3=W3 O2=W2 O1=W1 O0=W0
+.subckt Reg_5b A4=W4 A3=W3 A2=W2 A1=W1 A0=W0 Reset=WENABLE O4=O4 O3=O3 O2=O2 O1=O1 O0=O0
+.subckt cont5bit A4=O4 A3=O3 A2=O2 A1=O1 A0=O0 IN0=LEGIT O4=WC4 O3=WC3 O2=WC2 O1=WC1 O0=WC0
+
+.search or.blif
+.search Mux_5b.blif
+.search Reg_5b.blif
+.search cont5bit.blif
+
+.end
+

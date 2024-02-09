@@ -1,0 +1,29 @@
+.model DATAPATH
+.inputs PRIMO1 PRIMO2 SECONDO1 SECONDO2 INIZIA
+.outputs MANCHE_FSM1 MANCHE_FSM2 CMIN CMAX
+
+.subckt demux4bit A3=PRIMO1 A2=PRIMO2 A1=SECONDO1 A0=SECONDO2 Ctrl=INIZIA ON3=ON3 ON2=ON2 ON1=ON1 ON0=ON0 OFF3=OFF3 OFF2=OFF2 OFF1=OFF1 OFF0=OFF0
+.subckt Partita_lv5 MP1=OFF3 MP2=OFF2 MS1=OFF1 MS2=OFF0 INIZIA=INIZIA VinceG1=VinceG1 VinceG2=VinceG2 16=16 8=8 4=4 2=2 1=1
+.subckt Reg_4b A3=ON3 A2=ON2 A1=ON1 A0=ON0 Reset=INIZIA O3=O3 O2=O2 O1=O1 O0=O0
+.subckt add4 A3=O3 A2=O2 A1=O1 A0=O0 COUT=SET16 O3=SET8 O2=SET4 O1=SET2 O0=SET1
+.subckt CMIN_CMAX SET16=SET16 SET8=SET8 SET4=SET4 SET2=SET2 SET1=SET1 MAN16=16 MAN8=8 MAN4=4 MAN2=2 MAN1=1 CMIN=CavoMin CMAX=CavoMax
+.subckt mux_to_FSM Manche1=VinceG2 Manche0=VinceG1 Cmin=CavoMin Cmax=CavoMax INIZIA=INIZIA Manche1_out=MANCHE_FSM2 Manche0_out=MANCHE_FSM1 Cmin_out=CMIN Cmax_out=CMAX
+
+
+
+.search demux4bit.blif
+.search Partita_lv5.blif
+.search Reg_4b.blif
+.search add4.blif
+.search CMIN_CMAX.blif
+.search Mux_to_FSM.blif
+
+
+.end
+
+
+
+
+
+
+

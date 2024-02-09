@@ -1,0 +1,13 @@
+.model Gate_3b
+.inputs P1 P2 P3
+.outputs O1 O2
+
+.subckt xor P1=P1 P2=P3 O=O1
+.subckt xor P1=P2 P2=P3 O=O2
+
+.search xor.blif
+.end
+
+
+
+

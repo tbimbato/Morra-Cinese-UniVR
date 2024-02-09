@@ -1,0 +1,14 @@
+.model tavolino
+.inputs VG1 VG2 G1 G2 
+.outputs O0 O1
+
+.subckt xor P1=G1 P2=G2 O=W0
+.subckt mux_2b A1=VG1 A2=VG2 B1=G1 B2=G2 Ctrl=W0 O1=O0 O2=O1
+
+.search xor.blif
+.search Mux_2b.blif
+
+.end
+
+
+

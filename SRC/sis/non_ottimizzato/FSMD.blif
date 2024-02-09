@@ -1,0 +1,13 @@
+.model FSMD
+.inputs MossaG1(1) MossaG1(0) MossaG2(1) MossaG2(0) INIZIA
+.outputs Manche(1) Manche(0) Partita(1) Partita(0)
+ 
+.subckt DATAPATH PRIMO1=MossaG1(1) PRIMO2=MossaG1(0) SECONDO1=MossaG2(1) SECONDO2=MossaG2(0) INIZIA=INIZIA MANCHE_FSM1=CavoMossa1 MANCHE_FSM2=CavoMossa2 CMIN=Wire1 CMAX=Wire2
+.subckt FSM Manche_data1=CavoMossa1 Manche_data0=CavoMossa2 CMIN=Wire1 CMAX=Wire2 INIZIA=INIZIA  Manche1=Manche(1) Manche0=Manche(0) Partia1=Partita(1) Partita0=Partita(0)
+
+.search DATAPATH.blif
+.search FSM_OTTIMA.blif
+
+.end
+
+

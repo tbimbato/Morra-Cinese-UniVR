@@ -1,0 +1,27 @@
+.model Controllo_Partita
+.inputs A1 A2 B1 B2
+.outputs Ctrl
+
+.subckt xnor P1=A1 P2=B1 O=W1
+.subckt xnor P1=A2 P2=B2 O=W2
+.subckt and P1=W1 P2=W2 O=W3
+
+.subckt nor P1=A1 P2=A2 O=W4
+.subckt nor P1=B1 P2=B2 O=W5
+.subckt and P1=W4 P2=W5 O=W6
+
+.subckt zero 0=0
+
+
+.subckt mux A=W3 B=0 Ctrl=W6 O=Ctrl
+
+.search xnor.blif
+.search nor.blif
+.search and.blif
+.search Mux.blif
+.search zero.blif
+
+
+
+.end
+

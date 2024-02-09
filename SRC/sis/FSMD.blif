@@ -1,0 +1,239 @@
+.model FSMD
+.inputs MossaG1(1) MossaG1(0) MossaG2(1) MossaG2(0) INIZIA
+.outputs Manche(1) Manche(0) Partita(1) Partita(0)
+.latch    [45] LatchOut_v5   1
+.latch    [46] LatchOut_v6   1
+.latch    [47] LatchOut_v7   1
+.latch    ON0 O0 fe INIZIA 0
+.latch    ON1 O1 fe INIZIA 0
+.latch    ON2 O2 fe INIZIA 0
+.latch    ON3 O3 fe INIZIA 0
+.latch    [623] 16 fe WENABLE 0
+.latch    [297] 8 fe WENABLE 0
+.latch    [303] 4 fe WENABLE 0
+.latch    [309] 2 fe WENABLE 0
+.latch    [1736] 1 fe WENABLE 0
+.latch    VG1 Gprece1 fe Reset 0
+.latch    VG2 Gprece2 fe Reset 0
+.latch    WireMossaA1 MossaA1 fe Reset 0
+.latch    WireMossaA2 MossaA2 fe Reset 0
+.names [279] [2563] Manche(1)
+11 1
+.names W1 [2563] Manche(0)
+11 1
+.names Manche(1) Manche(0) LatchOut_v5 LatchOut_v6 LatchOut_v7 W1 [580] [585] \
+[2584] Partita(1)
+1-1----1- 1
+1-10--1-- 1
+1--00-1-- 1
+-110---1- 1
+----10-11 1
+-1000-1-- 1
+.names Manche(1) Manche(0) Partita(1) LatchOut_v5 LatchOut_v6 [580] [585] \
+[2584] [2585] Partita(0)
+-11-1---- 1
+---0--11- 1
+-1----1-1 1
+-100-1--- 1
+1-0-01--- 1
+.names INIZIA Partita(0) LatchOut_v5 LatchOut_v6 LatchOut_v7 [47] W1 [279] \
+[580] [2560] [45]
+1--------- 1
+-1-------- 1
+--1------1 1
+--1-1--1-- 1
+---0--10-- 1
+-----0-11- 1
+----1101-- 1
+.names INIZIA Partita(1) LatchOut_v5 LatchOut_v6 [47] W1 [279] [580] [2560] \
+[2585] [46]
+1--------- 1
+-1-------- 1
+---1----1- 1
+-----1---1 1
+--0--01--- 1
+----01-1-- 1
+.names INIZIA Manche(0) Partita(1) Partita(0) LatchOut_v5 LatchOut_v7 W1 [279] \
+[585] [2558] [2584] [2585] [47]
+1----------- 1
+------0----1 1
+------0-0-1- 1
+-1--1--00--- 1
+-1-0---0-0-- 1
+--00-111---- 1
+.names MossaG1(1) INIZIA ON3
+11 1
+.names MossaG1(0) INIZIA ON2
+11 1
+.names MossaG2(1) INIZIA ON1
+11 1
+.names MossaG2(0) INIZIA ON0
+11 1
+.names [515] CtrlMossa [964] VG1
+0-- 1
+-11 1
+.names [285] Reset
+0 1
+.names [1007] CtrlMossa [136] VG2
+0-- 1
+-11 1
+.names O3 O2 SET8
+01 1
+10 1
+.names O3 SET8 O2 4 8 16 W16_8_4
+-10110 1
+-00100 1
+111011 1
+101001 1
+011010 1
+001000 1
+.names VG2 [285] W1
+10 1
+.names VG1 [285] [279]
+10 1
+.names INIZIA 4 8 16 [580]
+01-- 1
+0-1- 1
+0--1 1
+.names INIZIA W16_8_4 O1 O0 1 2 [585]
+011111 1
+011001 1
+010110 1
+010000 1
+.names VG1 VG2 [285] [1698]
+--1 1
+00- 1
+.names INIZIA [1698] WENABLE
+1- 1
+-0 1
+.names [580] 8 16 [297] [1736] [623]
+--11- 1
+101-- 1
+-1000 1
+.names INIZIA 4 8 [303] [1736] [297]
+--11- 1
+001-- 1
+-1000 1
+.names INIZIA 2 4 WENABLE [309] [1736] [303]
+--1-1- 1
+001--- 1
+--0100 1
+.names INIZIA 2 [1698] WENABLE [1736] [309]
+-1-0- 1
+01--1 1
+-00-0 1
+.names 1 [1698] WENABLE [1736]
+11- 1
+0-1 1
+.names Gprece2 Gprece1 [2551] [2561] Wmossa1
+010- 1
+10-0 1
+.names MossaG1(0) MossaG2(0) Wmossa1 MossaA1 MossaA2 Gprece2 Gprece1 [2554] \
+[2559] [285]
+0-1101--- 1
+-01100--- 1
+--111-10- 1
+--111-0-0 1
+--001010- 1
+--00110-0 1
+.names [98] forbice1 forbice2 carta2 sasso1 carta1 sasso2 [515]
+1000--- 1
+100-0-- 1
+10-0-0- 1
+10--00- 1
+1-00--0 1
+1-0-0-0 1
+1--0-00 1
+1---000 1
+.names [98] forbice1 forbice2 carta2 sasso1 carta1 sasso2 [1007]
+100--0- 1
+1-00-0- 1
+10--00- 1
+1--000- 1
+100---0 1
+1-00--0 1
+10--0-0 1
+1--00-0 1
+.names forbice1 forbice2 carta2 sasso1 carta1 sasso2 [98]
+0-00-- 1
+-000-- 1
+0--00- 1
+-0-00- 1
+0-0--0 1
+-00--0 1
+0---00 1
+-0--00 1
+.names MossaG1(1) [2559] forbice1
+10 1
+.names MossaG2(0) [2551] forbice2
+10 1
+.names forbice2 [2551] carta2
+00 1
+.names forbice1 [2559] sasso1
+00 1
+.names [515] [1007] [2561] [899]
+100 1
+.names [515] [1007] [2559] [1342]
+100 1
+.names [2561] [931]
+0 1
+.names [2559] [992]
+0 1
+.names [964] [136] [2586] CtrlMossa
+--1 1
+10- 1
+.names [2559] [2561] [964]
+11 1
+.names [2551] [2554] [136]
+11 1
+.names [527] WireMossaA1
+0 1
+.names [899] [931] CtrlMossa [2551] [2570] [527]
+-011- 1
+0-0-1 1
+.names [528] WireMossaA2
+0 1
+.names [1342] [992] CtrlMossa [2554] [2571] [528]
+-011- 1
+0-0-1 1
+.names forbice1 [2561] carta1
+00 1
+.names forbice2 [2554] sasso2
+00 1
+.names MossaG2(1) INIZIA [2551]
+0- 1
+-1 1
+.names MossaG2(0) INIZIA [2554]
+0- 1
+-1 1
+.names [515] [1007] [2555]
+1- 1
+-0 1
+.names LatchOut_v6 LatchOut_v7 [2558]
+0- 1
+-1 1
+.names MossaG1(0) INIZIA [2559]
+0- 1
+-1 1
+.names Manche(1) Manche(0) W1 [279] [2560]
+00-- 1
+--11 1
+.names MossaG1(1) INIZIA [2561]
+0- 1
+-1 1
+.names LatchOut_v5 [2558] [2563]
+0- 1
+-1 1
+.names [2551] [2555] [2570]
+1- 1
+-1 1
+.names [2554] [2555] [2571]
+1- 1
+-1 1
+.names Manche(1) LatchOut_v6 [2584]
+11 1
+.names LatchOut_v7 [279] [2585]
+10 1
+.names [964] [136] [2586]
+01 1
+.end

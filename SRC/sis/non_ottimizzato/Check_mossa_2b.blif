@@ -1,0 +1,17 @@
+.model Check_mossa_2b
+.inputs A1 A2 B1 B2 Ct1 Ct2
+.outputs O1 O2
+
+.subckt zero 0=0
+.subckt and P1=Ct1 P2=Ct2 O=Wctrl
+.subckt mux_2b A1=Ct1 A2=Ct2 B1=0 B2=0 Ctrl=Wctrl O1=Wct1 O2=Wct2
+.subckt Check_Mossa A=A1 B=B1 Ct1=Wct1 Ct2=Wct2 O=O1
+.subckt Check_Mossa A=A2 B=B2 Ct1=Wct1 Ct2=Wct2 O=O2
+
+.search zero.blif
+.search and.blif
+.search Mux_2b.blif
+.search Check_Mossa.blif
+
+.end
+

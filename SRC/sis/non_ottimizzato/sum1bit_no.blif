@@ -1,0 +1,12 @@
+.model sum1bit_no
+.inputs a b cin
+.outputs out1 
+.names a b lnk
+10 1
+01 1
+.names lnk cin out1
+10 1
+01 1
+
+.end
+

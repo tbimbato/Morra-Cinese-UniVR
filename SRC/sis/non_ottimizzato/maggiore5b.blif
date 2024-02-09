@@ -1,0 +1,23 @@
+.model maggiore5bit
+.inputs A4 A3 A2 A1 A0 
+.outputs O
+
+.subckt zero 0=0
+.subckt uno 1=1
+.subckt maggiore A=A0 B=1 O=W0
+.subckt maggiore A=A1 B=1 O=W1
+.subckt maggiore A=A2 B=0 O=W2
+.subckt maggiore A=A3 B=0 O=W3
+.subckt maggiore A=A4 B=0 O=W4
+.subckt or P1=W0 P2=W1 O=W2_1
+.subckt or P1=W2 P2=W2_1 O=W4_2_1
+.subckt or P1=W4_2_1 P2=W3 O=W8_4_2_1
+.subckt or P1=W8_4_2_1 P2=W4 O=O
+
+.search zero.blif
+.search uno.blif
+.search maggiore.blif
+.search or.blif
+
+.end
+

@@ -1,0 +1,18 @@
+.model Partita_lv2
+.inputs A0 A1 B0 B1 Reset
+.outputs VinceG1 VinceG2 MossaA1 MossaA2
+
+.subckt Partita_lv1 G1b1=A0 G1b2=A1 G2b1=B0 G2b2=B1 Pari=Pari VG1=VG1 VG2=VG2
+.subckt mux_2b A1=VG2 A2=VG1 B1=Pari B2=Pari Ctrl=Pari O1=VinceG1 O2=VinceG2
+.subckt Check_mossa_2b A1=A0 A2=A1 B1=B0 B2=B1 Ct1=VinceG2 Ct2=VinceG1 O1=W1 O2=W2
+.subckt Mossa_ill A1=A0 A2=A1 B1=B0 B2=B1 O1=Wire2 O2=Wire3 Ctrl=CtrlMossa
+.subckt mux_2b A1=W1 A2=W2 B1=Wire2 B2=Wire3 Ctrl=CtrlMossa O1=WireMossaA1 O2=WireMossaA2
+.subckt Reg_2b A0=WireMossaA1 A1=WireMossaA2 Reset=Reset O0=MossaA1 O1=MossaA2
+
+.search Partita_lv1.blif
+.search Mux_2b.blif
+.search Check_mossa_2b.blif
+.search Mossa_ill.blif
+.search Reg_2b.blif
+.end
+

@@ -1,0 +1,12 @@
+.model or
+.inputs P1 P2
+.outputs O
+
+.subckt not P1=P2 O=W1
+.subckt not P1=P1 O=W2
+.subckt notAnd P1=W1 P2=W2 O=O
+
+.search not.blif
+.search notAnd.blif
+
+.end

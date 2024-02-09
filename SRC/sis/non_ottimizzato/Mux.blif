@@ -1,0 +1,13 @@
+.model mux
+.inputs A B Ctrl
+.outputs O
+
+.subckt not P1=Ctrl O=NotCtrl
+.subckt and P1=A P2=NotCtrl O=W1
+.subckt and P1=B P2=Ctrl O=W2
+.subckt or P1=W1 P2=W2 O=O
+
+.search not.blif
+.search and.blif
+.search or.blif
+.end

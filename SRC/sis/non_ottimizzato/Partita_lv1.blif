@@ -1,0 +1,34 @@
+.model Partita_lv1
+.inputs G1b1 G1b2 G2b1 G2b2
+.outputs Pari VG1 VG2
+
+.subckt 2b_to_3b P1=G1b1 P2=G1b2 O1=sasso1 O2=carta1 O3=forbice1
+.subckt 2b_to_3b P1=G2b1 P2=G2b2 O1=sasso2 O2=carta2 O3=forbice2
+
+#Pari
+.subckt and P1=sasso1 P2=sasso2 O=Pari1
+.subckt and P1=carta1 P2=carta2 O=Pari2
+.subckt and P1=forbice1 P2=forbice2 O=Pari3
+
+#Vince G1
+.subckt and P1=carta1 P2=sasso2 O=VincePrimo1
+.subckt and P1=sasso1 P2=forbice2 O=VincePrimo2
+.subckt and P1=forbice1 P2=carta2 O=VincePrimo3
+
+#Vince G2
+.subckt and P1=carta1 P2=forbice2 O=VinceSecondo1
+.subckt and P1=forbice1 P2=sasso2 O=VinceSecondo2
+.subckt and P1=sasso1 P2=carta2 O=VinceSecondo3
+
+#Match Pari
+.subckt or_3b P1=Pari1 P2=Pari2 P3=Pari3 O=Pari 
+#Match Vince G1
+.subckt or_3b P1=VincePrimo1 P2=VincePrimo2 P3=VincePrimo3 O=VG1
+#Match Vinci G2
+.subckt or_3b P1=VinceSecondo1 P2=VinceSecondo2 P3=VinceSecondo3 O=VG2
+
+.search 2b_to_3b.blif
+.search and.blif
+.search or_3b.blif
+.end
+

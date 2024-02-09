@@ -1,0 +1,11 @@
+.model Check_Mossa
+.inputs A B Ct1 Ct2
+.outputs O
+
+.subckt and P1=A P2=Ct1 O=W1
+.subckt and P1=B P2=Ct2 O=W2
+.subckt xor P1=W1 P2=W2 O=O
+
+.search and.blif
+.search xor.blif 
+.end
