@@ -1,6 +1,6 @@
-PWD /Users/tbimbato/Documents/GitHub/LabArch_23/Relazione
+PWD /Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione
 INPUT /usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt
-INPUT /Users/tbimbato/Documents/GitHub/LabArch_23/Relazione/relazione.tex
+INPUT /Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione/relazione.tex
 OUTPUT relazione.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/lualatexquotejobname.lua
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/ltluatex.lua

@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.8.27)  9 FEB 2024 14:53
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.8.27)  9 FEB 2024 18:08
  restricted system commands enabled.
  file:line:error style messages enabled.
-**/Users/tbimbato/Documents/GitHub/LabArch_23/Relazione/relazione.tex
-(/Users/tbimbato/Documents/GitHub/LabArch_23/Relazione/relazione.tex
+**/Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione/relazione.tex
+(/Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione/relazione.tex
 LaTeX2e <2022-11-01> patch level 1
 Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
 Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
@@ -1200,7 +1200,7 @@ warning  (file ./graph//datapath.pdf) (pdf inclusion): PDF inclusion: found PDF 
 <./graph//datapath.pdf, id=112, 526.28821pt x 241.61768pt>
 File: ./graph//datapath.pdf Graphic file (type pdf)
 <use ./graph//datapath.pdf>
-Package luatex.def Info: ./graph//datapath.pdf  used on input line 687.
+Package luatex.def Info: ./graph//datapath.pdf  used on input line 690.
 (luatex.def)             Requested size: 392.6477pt x 180.26529pt.
 [12
 
@@ -1209,7 +1209,7 @@ warning  (file ./graph//3bmosse.pdf) (pdf inclusion): PDF inclusion: found PDF v
 <./graph//3bmosse.pdf, id=134, 354.97618pt x 132.09149pt>
 File: ./graph//3bmosse.pdf Graphic file (type pdf)
 <use ./graph//3bmosse.pdf>
-Package luatex.def Info: ./graph//3bmosse.pdf  used on input line 773.
+Package luatex.def Info: ./graph//3bmosse.pdf  used on input line 776.
 (luatex.def)             Requested size: 354.9753pt x 132.09116pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1219,10 +1219,10 @@ warning  (file ./graph//partitalv1.pdf) (pdf inclusion): PDF inclusion: found PD
 <./graph//partitalv1.pdf, id=135, 430.92393pt x 363.76503pt>
 File: ./graph//partitalv1.pdf Graphic file (type pdf)
 <use ./graph//partitalv1.pdf>
-Package luatex.def Info: ./graph//partitalv1.pdf  used on input line 780.
+Package luatex.def Info: ./graph//partitalv1.pdf  used on input line 783.
 (luatex.def)             Requested size: 430.92287pt x 363.76413pt.
 
-Overfull \hbox (38.27516pt too wide) in paragraph at lines 780--781
+Overfull \hbox (38.27516pt too wide) in paragraph at lines 783--784
  [][] 
  []
 
@@ -1231,11 +1231,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 warning  (file ./graph//cmincmax.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.6', but at most version '1.5' allowed
-<./graph//cmincmax.pdf, id=136, 587.527pt x 336.4028pt>
+<./graph//cmincmax.pdf, id=136, 610.68652pt x 336.4028pt>
 File: ./graph//cmincmax.pdf Graphic file (type pdf)
 <use ./graph//cmincmax.pdf>
-Package luatex.def Info: ./graph//cmincmax.pdf  used on input line 787.
-(luatex.def)             Requested size: 392.6477pt x 224.8292pt.
+Package luatex.def Info: ./graph//cmincmax.pdf  used on input line 790.
+(luatex.def)             Requested size: 392.6477pt x 216.30313pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1244,7 +1244,7 @@ warning  (file ./graph//tavolino.pdf) (pdf inclusion): PDF inclusion: found PDF 
 <./graph//tavolino.pdf, id=137, 255.13016pt x 140.1777pt>
 File: ./graph//tavolino.pdf Graphic file (type pdf)
 <use ./graph//tavolino.pdf>
-Package luatex.def Info: ./graph//tavolino.pdf  used on input line 794.
+Package luatex.def Info: ./graph//tavolino.pdf  used on input line 797.
 (luatex.def)             Requested size: 255.12953pt x 140.17735pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1253,34 +1253,34 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <./graph//not_opt.png, id=226, 758.835pt x 95.35625pt>
 File: ./graph//not_opt.png Graphic file (type png)
 <use ./graph//not_opt.png>
-Package luatex.def Info: ./graph//not_opt.png  used on input line 810.
+Package luatex.def Info: ./graph//not_opt.png  used on input line 813.
 (luatex.def)             Requested size: 337.67726pt x 42.43411pt.
 <./graph//opt.png, id=227, 758.835pt x 100.375pt>
 File: ./graph//opt.png Graphic file (type png)
 <use ./graph//opt.png>
-Package luatex.def Info: ./graph//opt.png  used on input line 817.
+Package luatex.def Info: ./graph//opt.png  used on input line 820.
 (luatex.def)             Requested size: 337.67726pt x 44.66748pt.
 <./graph//mapping.png, id=228, 757.83125pt x 772.8875pt>
 File: ./graph//mapping.png Graphic file (type png)
 <use ./graph//mapping.png>
-Package luatex.def Info: ./graph//mapping.png  used on input line 826.
+Package luatex.def Info: ./graph//mapping.png  used on input line 829.
 (luatex.def)             Requested size: 337.67726pt x 344.3879pt.
  [16
 
 <./graph//not_opt.png><./graph//opt.png><./graph//mapping.png>]
 Capitolo 5.
 
-Overfull \hbox (22.58987pt too wide) in paragraph at lines 835--835
+Overfull \hbox (22.58987pt too wide) in paragraph at lines 838--838
 |\TU/Helvetica(0)/b/n/24.88 Scel-te pro-get-tua-li ed even-tua-li chia-
  []
 
 
-Overfull \hbox (7.70688pt too wide) in paragraph at lines 836--836
+Overfull \hbox (7.70688pt too wide) in paragraph at lines 839--839
 |[]\TU/Helvetica(0)/b/n/14.4 De-fi-ni-zio-ne del com-por-ta-men-to in ca-so di mos-sa \TU/Helvetica(0)/b/it/14.4 ”sco-
  []
 
 
-Overfull \hbox (3.11784pt too wide) in paragraph at lines 846--846
+Overfull \hbox (3.11784pt too wide) in paragraph at lines 849--849
 |[]\TU/Helvetica(0)/b/n/14.4 Ap-pro-fon-di-men-to sul-la sud-di-vi-sio-ne del-le fun-zio-ni tra
  []
 
@@ -1294,12 +1294,12 @@ Here is how much of LuaTeX's memory you used:
  195341,1977958 words of node,token memory allocated
  622 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 10 glue, 4 kern, 1 glyph, 23 attribute, 57 glue_spec, 13 attribute_list, 1 write nodes
-   avail lists: 2:4074,3:293,4:2208,5:2149,6:104,7:10932,8:11,9:7081,10:22,11:1405
+   avail lists: 2:4074,3:293,4:2208,5:2149,6:110,7:10937,8:11,9:7081,10:22,11:1405
  35725 multiletter control sequences out of 65536+600000
- 150 fonts using 47303087 bytes
- 101i,10n,140p,658b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 150 fonts using 47303551 bytes
+ 101i,10n,140p,666b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/truetype/google/noto/NotoSansMono-Bold.ttf></System/Library/Fonts/Helvetica.ttc></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/kpfonts-otf/KpMath-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/truetype/google/noto/NotoSansMono-Regular.ttf></System/Library/Fonts/Helvetica.ttc></System/Library/Fonts/Helvetica.ttc></System/Library/Fonts/Helvetica.ttc>
-Output written on relazione.pdf (21 pages, 2479913 bytes).
+Output written on relazione.pdf (21 pages, 2484401 bytes).
 
 PDF statistics: 287 PDF objects out of 1000 (max. 8388607)
  178 compressed objects within 2 object streams

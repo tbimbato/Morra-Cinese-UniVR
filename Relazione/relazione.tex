@@ -78,7 +78,7 @@ L'elaborato è stato eseguito da Tommi Bimbato e Antonio Iovine durante il primo
 
 \chapter{Introduzione}
 \section{Approccio progettuale}
-L'elaborato è stato inizialmente analizzato e sviluppato a partire da una risoluzione algorithmica delle specifiche e dei requisiti di output \textit{(Linguaggio C)}.
+L'elaborato è stato inizialmente analizzato e sviluppato a partire da una risoluzione algoritmica delle specifiche e dei requisiti di output \textit{(Linguaggio C)}.
 Successivamente, è stato elaborato un possibile schema di funzionamento del sistema (FSMD), sono state individuate le componenti più affini al calcolo combinatorio e la loro controparte nell'esecuzione in FSM (vedere sezione \ref{sec:approfondimento}).\@
 Una volta suddivise le funzioni tra Datapath e controllore (FSM), si è descritto in codice verilog il comportamento generale della macchina.
 Si è passati contemporaneamente alla progettazione a \textit{gate level} dei componenti del datapath confrontando il comportamento del modello in Verilog e i singoli blocchi che compongono il Datapath.\@
@@ -210,7 +210,7 @@ Il segnale \texttt{INIZIA} è collegato direttamente al Datapath e viene utilizz
 \subsubsection{Settaggio del Numero di Manche Massime}
 Il Datapath è incaricato di impostare il numero massimo di manche per la partita.
 Questo valore è basato sulla concatenazione dei bit rappresentanti le scelte dei giocatori (\texttt{PRIMO} e \texttt{SECONDO}) e un valore minimo di manche giocabili (4).
-In concreto questa funzione viene eseguita registrando in un registro a 5 bit il valore di \texttt{PRIMO} e \texttt{SECONDO} concatenati e sommando 4.
+In concreto questa funzione viene eseguita registrando in un registro a 4 bit il valore di \texttt{PRIMO} e \texttt{SECONDO} concatenati e sommando 4.
 
 \subsubsection{Calcolo combinatorio del vincitore della \textit{manche} e applicazione delle regole interne}
 Una delle funzioni più cruciali del Datapath è determinare la mossa vincente tra le due prese in input (\texttt{PRIMO} e \texttt{SECONDO}).
@@ -230,7 +230,7 @@ Il contatore di manche giocate reagisce anche alla possibilità di manche annull
 L'FSM è il componente che si occupa di gestire il flusso dei segnali di output e di controllo, è stata ideata ad 8 stati e secondo il modello della macchina di Mealy.
 Il controllore FSM procede a decretare il vincitore se le condizioni per farlo sono soddisfatte tenendo conto dei vantaggi che accumulano i rispettivi giocatori.
 Lo stato iniziale dell'FSM è \texttt{S0} (tabella \ref{tab:codifica_stati}), da questo varia in base all'esito del segnale che determina il vincitore da ogni manche in arrivo dal Datapath.
-Quando sussistono le condizioni per la vittoria della partita o terminano le manche giocabili il controllore decreta il vincitore tramite L'output \texttt{PARTITA} e torna allo stato iniziale qualora l'input principale \texttt{INIZIA} salga ad 1 stimolando il reset.
+Quando sussistono le condizioni per la vittoria della partita o terminano le manche giocabili il controllore decreta il vincitore tramite l'output \texttt{PARTITA} e torna allo stato iniziale qualora l'input principale \texttt{INIZIA} salga ad 1 stimolando il reset.
 \\
 Il \textit{controllore FSM} prende in input 4 segnali:
 \begin{itemize}
@@ -614,6 +614,7 @@ MorraCinese test14 (
   .MANCHE(MANCHE),
   .PARTITA(PARTITA)
   );
+  
 
   task Simulate();
     $fdisplay(script, "simulate %b %b %b %b %b", PRIMO[1], PRIMO[0], SECONDO[1], SECONDO[0], INIZIA);
@@ -669,9 +670,11 @@ Successivamente all'interno di un blocco \texttt{initial} vengono inizializzati 
 \end{lstlisting}
 
 \begin{lstlisting}[firstnumber=587]
-  $finish;
+  $fdisplay(script, "quit");
   $fclose(script);
   $fclose(out);
+  $finish;
+
 
 end
 endmodule
@@ -753,15 +756,15 @@ Nello specifico sono stati modellati inizialmente i seguenti componenti:
         \item \textbf{CMIN\_CMAX.blif}: Implementazione dei segnali di controllo diretti alla FSM per il conteggio del numero di manche giocate.
         \item \textbf{Check\_Mossa.blif}: Multiplexer modificato per il controllo della mossa del giocatore.
         \item \textbf{Check\_mossa\_2b.blif}: Versione a 2 bit di Check\_Mossa.blif che funziona per due flussi (PRIMO e SECONDO).
-        \item \textbf{Gate\_3b.blif}: [da scrivere!].
+        \item \textbf{Gate\_3b.blif}: Pseudo-multiplexer.
         \item \textbf{Mossa\_ill.blif}: Implementazione di una mossa ripetuta.
         \item \textbf{tavolino.blif}: Assegna la vittoria in caso di mossa "sconosciuta" all'altro giocatore.
         \item \textbf{Controllo\_Partita.blif}: Modulo che elabora l'annullamento della manche in caso di mossa non permessa.
-        \item \textbf{Partita\_lv1.blif}: raggruppamento 1.
-        \item \textbf{Partita\_lv2.blif}: raggruppamento 2.
-        \item \textbf{Partita\_lv3.blif}: raggruppamento 3.
-        \item \textbf{Partita\_lv4.blif}: raggruppamento 4.
-        \item \textbf{Partita\_lv5.blif}: raggruppamento 5.
+        \item \textbf{Partita\_lv1.blif}: raggruppamento 1 (Logica base del gioco)
+        \item \textbf{Partita\_lv2.blif}: raggruppamento 2. (Controllo ripetizione mossa)
+        \item \textbf{Partita\_lv3.blif}: raggruppamento 3. (Controllo vittoria in caso di mossa nulla)
+        \item \textbf{Partita\_lv4.blif}: raggruppamento 4. (Ultimo controllo delle regole di ripetizione)
+        \item \textbf{Partita\_lv5.blif}: raggruppamento 5. (Aggiunge il contatore delle manche)
         \item \textbf{DATAPATH.blif}: insieme dei moduli del datapath.
         \item \textbf{FSM.blif}: Macchina a stati finiti.
         \item \textbf{FSMD.blif}: Macchina a stati finiti con datapath.
@@ -802,7 +805,7 @@ Nello specifico sono stati modellati inizialmente i seguenti componenti:
 
 \section{Statistiche del circuito e mapping tecnologico}
 
-Sono stati effettuati due mapping tecnologici del circuito, uno prima dell'ottimizzazione e uno dopo.
+Abbiamo analizzatao le statistiche prima dell'ottimizzazione e dopo.
 L'ottimizzazione ha portato ad una riduzione dei nodi da 474 a 62 e dei letterali (in somma di prodotti) da 969 a 419.
 
   \begin{figure}[ht]

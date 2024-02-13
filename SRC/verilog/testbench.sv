@@ -583,10 +583,12 @@ module MorraCinese_TB;
     Simulate();
     #20;
     Output();   //82 9
-   
-    $finish;
+   	
+    $fdisplay(script, "quit");
     $fclose(script);
     $fclose(out);
+    $finish;
+
 
   end
 endmodule
