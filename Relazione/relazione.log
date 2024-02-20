@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.8.27)  9 FEB 2024 18:08
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.8.27)  20 FEB 2024 21:43
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione/relazione.tex
@@ -1296,10 +1296,10 @@ Here is how much of LuaTeX's memory you used:
    7 hlist, 2 vlist, 2 rule, 10 glue, 4 kern, 1 glyph, 23 attribute, 57 glue_spec, 13 attribute_list, 1 write nodes
    avail lists: 2:4074,3:293,4:2208,5:2149,6:110,7:10937,8:11,9:7081,10:22,11:1405
  35725 multiletter control sequences out of 65536+600000
- 150 fonts using 47303551 bytes
+ 150 fonts using 47303203 bytes
  101i,10n,140p,666b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/truetype/google/noto/NotoSansMono-Bold.ttf></System/Library/Fonts/Helvetica.ttc></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/kpfonts-otf/KpMath-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/truetype/google/noto/NotoSansMono-Regular.ttf></System/Library/Fonts/Helvetica.ttc></System/Library/Fonts/Helvetica.ttc></System/Library/Fonts/Helvetica.ttc>
-Output written on relazione.pdf (21 pages, 2484401 bytes).
+Output written on relazione.pdf (21 pages, 2484404 bytes).
 
 PDF statistics: 287 PDF objects out of 1000 (max. 8388607)
  178 compressed objects within 2 object streams

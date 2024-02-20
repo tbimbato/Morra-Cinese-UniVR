@@ -1,11 +1,11 @@
 # Fdb version 4
-["lualatex"] 1707498494 "/Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione/relazione.tex" "relazione.pdf" "relazione" 1707498497 0
-  "/System/Library/Fonts/Helvetica.ttc" 1702651409 2369592 c34e8289dcaa9e28d8f05ac4234444cf ""
-  "/Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione/relazione.tex" 1707498494 38115 fcef90ebfda38cc7fbc8220b6b7c9c68 ""
-  "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/helvetica-1.luc" 1706520742 233006 cc8b0bc9a1aaa11dfe3bf76acf5e3b55 ""
-  "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/helvetica-2.luc" 1706520742 233663 8a883d394a13ed74ff2e42bc99daae15 ""
-  "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/helvetica-3.luc" 1706520742 233845 275041c87e82ad43dbdc8d27b24cd831 ""
-  "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/helvetica-4.luc" 1706520742 234576 e11c89ec9fc4cf295e707532bd2e7e43 ""
+["lualatex"] 1708461803 "/Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione/relazione.tex" "relazione.pdf" "relazione" 1708461806 0
+  "/System/Library/Fonts/Helvetica.ttc" 1706894371 2369592 c34e8289dcaa9e28d8f05ac4234444cf ""
+  "/Users/tbimbato/Documents/GitHub/Morra-Cinese-UniVR/Relazione/relazione.tex" 1708461801 38117 a78224d4b8353931f839e10d17e9be9e ""
+  "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/helvetica-1.luc" 1708461770 233006 12a04f39339451ee4acd9b95d6537b35 ""
+  "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/helvetica-2.luc" 1708461770 233663 57b1ae9754eebb9005e83fd6e9c3b7e8 ""
+  "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/helvetica-3.luc" 1708461770 233845 e9ca4df76554e8a7fd6942a5122a3def ""
+  "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/helvetica-4.luc" 1708461770 234576 20e545820d38bb1c3aa066858e91522e ""
   "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/kpmath-regular.luc" 1706520673 440764 5d7ab75c8ad3fc492e8f27e2f3933b9e ""
   "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/kpmono-bold.luc" 1706520673 52608 51a6fedfcf983355702874fd4decf19f ""
   "/Users/tbimbato/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/kpmono-bolditalic.luc" 1706520673 54071 57621eb520bbec804837fe7b4b6feb3c ""
@@ -183,9 +183,9 @@
   "graph//opt.png" 1707488840 11452 9b66d8a96e440fb8e2f0c085d8b17d69 ""
   "graph//partitalv1.pdf" 1707488840 390430 8fca17779897a692261856842298f637 ""
   "graph//tavolino.pdf" 1707488840 370743 0816a745ea417bb92a53a71f0bf92c97 ""
-  "relazione.aux" 1707498496 6276 31cd71230e794823e0c6b92ee4800a2a "lualatex"
-  "relazione.tex" 1707498494 38115 fcef90ebfda38cc7fbc8220b6b7c9c68 ""
-  "relazione.toc" 1707498496 1986 7214d4451c61d47d4f02040c0ab55740 "lualatex"
+  "relazione.aux" 1708461806 6278 c16c265b3973d2cdc41a5d0d476932f8 "lualatex"
+  "relazione.tex" 1708461801 38117 a78224d4b8353931f839e10d17e9be9e ""
+  "relazione.toc" 1708461806 1986 7214d4451c61d47d4f02040c0ab55740 "lualatex"
   (generated)
   "relazione.aux"
   "relazione.log"
